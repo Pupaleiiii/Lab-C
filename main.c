@@ -1,23 +1,14 @@
 #include <stdio.h>
 #include "artemis.h"
+#include "validaciones.h"
 
 int main() {
     
     double x, m, h, Fg, Ag, Vi, DT, DL, DiL, Ki, Kf, Ui, Uf, WPorUnidadDeMasa;
     
-    printf("Masa de Orion (kg): ");
-    scanf("%lf", &m);
-
-    printf("Altura orbital (m): ");
-    scanf("%lf", &h);
-
-    printf("Velocidad inicial (m/s): ");
-    scanf("%lf", &Vi);
-
-    if (m <= 0 || h < 0 || Vi < 0) {
-        printf("Error: datos de entrada invalidos.\n");
-        return 1;
-    }
+    m = leerDoublePositivo("Ingrese la masa de Orion en kg (> 0): ", 0.0001);
+    h = leerDoublePositivo("Ingrese la altura orbital en m (>= 0): ", 0.0);
+    Vi = leerDoublePositivo("Ingrese la velocidad inicial en m/s (>= 0): ", 0.0);
 
     //A: 1º Ley de Newton
 
@@ -29,7 +20,7 @@ int main() {
 
     printf("La orion continua moviendose por inercia pero la gravedad terrestre sigue actuando sobre ella y modifica su movimiento. \n");
     
-    printf("El intensidad de la fuerza gravitatoria que actua sobre la nave es: %.2lf N\n", Fg);
+    printf("Intensidad de la fuerza gravitatoria que actua sobre la nave es: %.2lf N\n", Fg);
     
     printf("La intensidad de la aceleracion gravitatoria que actua sobre la nave es: %.2lf m/s^2\n", Ag);
 
