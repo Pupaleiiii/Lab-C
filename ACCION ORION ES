@@ -1,0 +1,30 @@
+ACCION ORION ES
+
+AMBIENTE
+
+  G = 6,67408*(10**-12); //constante de gravitación universal ([N][m^2/s^2])
+
+  mT = 5,97220*(10**24); //masa de la tierra (kg)
+
+  mL = 7,348*(10**22); //masa de la luna (kg)
+
+  m = 2,6*(10**4); //masa de la nave orion (kg)
+
+  D(T,L) = 3,84*(10**8); // distancia entre la tierra y la luna (m);
+
+  h = 1,92*(10**5); //altura de la orbita baja de la tierra (m);
+
+  FUNCION K(m, v, real): real;
+
+  	K := m*v*v/2;
+
+  FIN_FUNCION
+
+  FUNCION r_equilibrio(d: real): real
+
+    r_equilibrio := d/(1+sqrt(mL/mT));
+
+  FIN_FUNCION
+
+ALGORITMO
+
