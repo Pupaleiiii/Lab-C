@@ -7,14 +7,14 @@ int main() {
     int opcion;
     double DT, Fg, Ag, Ki, Kf, x, DL, DiL, Ui, Uf, WPorUnidadDeMasa;
 
-    // Arreglo unidimensional para cumplir con el requisito técnico obligatorio de la cátedra
+    // Arreglo unidimensional 
     double historialResultados[10];
     int totalHistorial = 0;
 
     // Llamamos a la función pasando el puntero de la estructura (&)
     configurarNave(&orion);
 
-    // Ciclo del menú interactivo (Experiencia de usuario solicitada por cátedra)
+    // Ciclo del menú interactivo
     do {
         printf("\n==================================================\n");
         printf("      SIMULADOR ARTEMIS: INYECCION TRANSLUNAR     \n");
