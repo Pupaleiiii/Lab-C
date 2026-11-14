@@ -3,6 +3,30 @@
 #include <string.h>
 #include "validaciones.h"
 
+int leerEntero(const char *mensaje) {
+    long valor;
+    char buffer[100];
+    int valido = 0;
+
+    do {
+        printf("%s", mensaje);
+        if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+            char *endptr;
+            valor = strtol(buffer, &endptr, 10);
+            
+            if (endptr != buffer && (*endptr == '\n' || *endptr == '\0')) {
+                valido = 1;
+            } else {
+                printf("[Error] Entrada invalida. Por favor, ingrese un numero entero.\n");
+            }
+        } else {
+            printf("[Error] No se pudo leer la entrada.\n");
+        }
+    } while (!valido);
+
+    return (int)valor;
+}
+
 double leerDouble(const char *mensaje) {
     double valor;
     char buffer[100];

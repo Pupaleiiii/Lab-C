@@ -1,5 +1,29 @@
+#include <stdio.h>
 #include <math.h>
 #include "artemis.h"
+#include "validaciones.h"
+
+void configurarNave(NaveOrion *nave) {
+    printf("==================================================\n");
+    printf("        CONFIGURACION DE LA MISION ARTEMIS        \n");
+    printf("==================================================\n");
+    
+    nave->masa = leerDoublePositivo("Ingrese la masa de Orion en kg (> 0): ", 0.0001);
+    nave->alturaOrbital = leerDoublePositivo("Ingrese la altura orbital en m (>= 0): ", 0.0);
+    nave->velocidadInicial = leerDoublePositivo("Ingrese la velocidad inicial en m/s (>= 0): ", 0.0);
+    
+    printf("\n[Configuracion guardada exitosamente en el sistema!]\n\n");
+}
+
+double fuerzaGravitatoria(double m, double h) {
+    double DT = RT + h;
+    return (G * MT * m) / (DT * DT);
+}
+
+double aceleracionGravitatoria(double m, double h) {
+    double Fg = fuerzaGravitatoria(m, h);
+    return Fg / m;
+}
 
 double energiaCinetica(double m, double v) {
     return (m*v*v)/2;

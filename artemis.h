@@ -8,6 +8,16 @@
 #define RT 6371000.0 //Radio de la Tierra (m)
 #define D 384000000.0 //Distancia Tierra-Luna (m)
 
+typedef struct {
+    double masa;
+    double alturaOrbital;
+    double velocidadInicial;
+} NaveOrion;
+
+void configurarNave(NaveOrion *nave);
+double fuerzaGravitatoria(double m, double h);
+double aceleracionGravitatoria(double m, double h);
+
 double energiaCinetica(double m, double v);
 double posicionEquilibrio(double d);
 double UgTotal(double m, double r1, double r2);
